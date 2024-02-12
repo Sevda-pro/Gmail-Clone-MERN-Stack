@@ -1,0 +1,63 @@
+/* cart.css */
+
+
+  
+  /* Styles for the modal */
+  .modal-content {
+    background-color: #fff; /* Background color for the modal content */
+  }
+  
+  /* Header styles */
+  .modal-header {
+    background-color: #007bff; /* Header background color */
+    color: #fff; /* Header text color */
+  }
+  
+  /* Title styles */
+  .modal-title {
+    font-size: 1.5rem; /* Title font size */
+  }
+  
+  /* Body styles */
+  .modal-body {
+    /* Customize the body styles as needed */
+  }
+  
+  /* Total items and total price styles */
+  .modal-body h3,
+  .modal-body h4 {
+    margin-bottom: 20px; /* Add spacing between items and price */
+  }
+  
+  /* Item details styles */
+  .modal-body span {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  /* Button styles */
+  .cartprocessbtn,
+  .cartprocessbtnclose {
+    background-color: rgb(139, 135, 131) !important;
+    color: #fff;
+    padding: 8px 12px;
+    margin-right: 10px; /* Add spacing between buttons */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .cartprocessbtnadd{
+    background-color: rgb(139, 135, 131);
+    color: #fff;
+    padding: 8px 12px;
+    margin-right: 10px; /* Add spacing between buttons */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+  }
+  
+
+  
+  /* Additional styles can be added based on your design preferences */
+  
