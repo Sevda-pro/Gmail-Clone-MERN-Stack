@@ -1,6 +1,6 @@
 
 .navbody {
-  background-image: url('exp44.jpg');
+  background-image: url('email3.jpg');
   background-size: cover;
   width: 100%;
   height: 100vh;
@@ -41,8 +41,10 @@ text-decoration: none;
 top: 10px;
 }
 .curr{
-  color: white !important;
+  color: rgb(71, 36, 36) !important;
   text-decoration: none;
+  position: absolute;
+  left: 1%;
 }
 .card1{
   position: relative;
@@ -506,4 +508,12 @@ h1 {
 .allbtn{
   position: relative;
   bottom: 10px;
+}
+.profileicon{
+  position: fixed;
+  right: 0.5%;
+}
+.currtext{
+  color: #5c8fc2;
+font-weight: bold;
 }
