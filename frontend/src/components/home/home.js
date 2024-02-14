@@ -10,72 +10,45 @@ import { CgMail } from "react-icons/cg";
 import Mailoverlay from '../mailoverlay/mailoverlay';
 import { CgProfile } from "react-icons/cg";
 import { SiGmail } from "react-icons/si";
+import { FcBusinessman } from "react-icons/fc";
+import { MdPresentToAll } from "react-icons/md";
+import { BsArrowDownSquareFill } from "react-icons/bs";
+import { FaPen } from "react-icons/fa";
+import Sidebar from '../Sidebar/sidebar';
 const token = localStorage.getItem("token");
 const Home = () => {
-    const [price, setPrice] = useState('');
-    const [desc, setDesc] = useState('');
-    const [category, setCategory] = useState('');
-    const [expalert, setAlert] = useState(false);
-    const [mail, setMail] = useState(false);
-    const [mailoverlay, setMailoverlay] = useState(false);
-    const [name, setName] = useState(localStorage.getItem('name'));
     const navigate = useNavigate();
-    
-    const handleClosemail = async () => {
-        setMailoverlay(false)
-    }
-    const mailclick = async () => {
-        setMailoverlay(true)
-    }
-    const checkemail = async () => {
-        let res = await axios.get(`${process.env.REACT_APP_API_KEY}/check`, { headers: { Authorization: token } })
-        if (res.data.result == false) setMail(false);
-        else setMail(true);
-    }
-    const handleClick = () => {
-        navigate('/all')
-    }
-    const handleLogout = () => {
-        localStorage.clear();
-        navigate('/login');
-    }
-    const addexpense = async (e) => {
-        e.preventDefault();
-        try {
-            var obj = {
-                price: price,
-                desc: desc,
-                category: category
-            };
+    const [isSidebarOpen, setSidebarOpen] = useState(false);
 
-
-            let res = await axios.post(`${process.env.REACT_APP_API_KEY}/expense`, obj, { headers: { Authorization: token } });
-            if (res.status === 201) {
-                setAlert(true);
-                setTimeout(() => {
-                    setAlert(false);
-                }, 2000);
-            }
-
-
-        } catch (error) {
-            console.error("Error posting data:", error);
-        }
-    }
-    useEffect(() => {
-        checkemail();
-    }, [])
-
+    const handleProfileIconClick = () => {
+      setSidebarOpen(!isSidebarOpen);
+    };
+  
+    const handleCloseSidebar = () => {
+      setSidebarOpen(false);
+    };
+    const handleComposeClick = () => {
+        setSidebarOpen(!isSidebarOpen);
+      };
     return (
         <div className='homediv'>
             <div className='navbody'>
-
-                <NavLink className='profileicon'>
-                <CgProfile  size={30} style={{ color:'skyblue' }} />
-                </NavLink>    
+                <NavLink onClick={handleProfileIconClick} className='profileicon'>
+                <FcBusinessman size={30} style={{ color: 'skyblue' }} />
+                </NavLink>
+                <Sidebar isOpen={isSidebarOpen} onClose={handleCloseSidebar} />
                 <NavLink to="/home" className='curr'>
-                <SiGmail size={30} style={{ color:'brown' }} /><span className='currtext'>Home</span>
-                </NavLink>             
+                    <SiGmail size={30} style={{ color: 'brown' }} /><span className='currtext'>Home</span>
+                </NavLink>
+                <NavLink to="/home" className='compose'>
+                <FaPen  size={30} style={{ color: 'brown' }} /><span className='currtext'>Compose</span>
+                </NavLink>
+                <NavLink to="/sent" className='sent'>
+                <MdPresentToAll  size={35} style={{ color: 'brown' }} /><span className='currtext'>Sent</span>
+                </NavLink><br/>
+                <NavLink to="/sent" className='received'>
+                <BsArrowDownSquareFill size={30} style={{ color: 'brown' }} /><span className='currtext'>Received</span>
+                </NavLink>
             </div>
         </div>
     );

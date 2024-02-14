@@ -1,0 +1,33 @@
+/* Sidebar.css */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px; 
+    width: 300px;
+    height: 100%;
+    margin-top:5%;
+    background-color: #556840;
+    transition: right 1s ease; 
+  }
+  
+  .sidebar.open {
+    right: 0; 
+  }
+  .open{
+    background-color: rgb(131, 107, 76);
+    margin-top:5%;
+}
+.verifymailbtn{
+    position: relative;
+    top: 8%;
+}
+.verifymailbtn + span{
+    color: black;
+    position: relative;
+    top: 8%;
+    left: 10%;
+}
+#spannameid{
+    position: absolute;
+    top: 5%;
+}
