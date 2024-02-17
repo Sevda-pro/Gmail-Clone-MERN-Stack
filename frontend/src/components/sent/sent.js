@@ -38,7 +38,7 @@ const Sent = ({ isOpen, onClose }) => {
                     {data.map((val) => (
                         <li key={val._id} className="Item" id={val._id}>
                             <span>
-                               To: {val.mail} subject :{val.sub} message:{val.message}
+                              <span>To: {val.mail} <br/></span><span> subject :{val.sub}<br/> </span><span>message:{val.message}</span>
                             </span>
                             
                         </li>
