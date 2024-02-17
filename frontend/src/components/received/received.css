@@ -1,0 +1,13 @@
+.receivedclass {
+    position: fixed;
+    bottom: -800px; 
+    width: 60%;
+    height: 90%;
+    left: 20%;
+    background-color: #7b8175;
+    transition: bottom 1s ease; 
+  }
+  
+  .receivedclass.openreceived {
+      bottom: 20px
+}

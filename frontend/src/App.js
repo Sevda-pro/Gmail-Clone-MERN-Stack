@@ -11,16 +11,12 @@ import ResetP from './components/forget/resetp';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  const [token, setToken] = React.useState(localStorage.getItem('token'));
-  const PrivateRoute = (props) => {
-    return token ? props.val : <Navigate to="/login" />;
-  };
-
+ 
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Signup />} />
-        <Route path="/home" element={<PrivateRoute val={<Home />} />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgetpassword" element={<Forget />} />

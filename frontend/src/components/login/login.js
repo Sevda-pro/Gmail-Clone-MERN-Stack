@@ -1,18 +1,14 @@
 import { useState, useEffect } from 'react';
 import '../signup/signup.css'
-import {useNavigate,Navigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import {FloatingLabel,Button} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios';
 export default function Login() {
+const navigate = useNavigate(); 
     const [name,setName]=useState('')
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
-    const navigate=useNavigate();
-    const func=()=>{
-        navigate('/home');
-
-    }
     async function signin(e) {
         e.preventDefault();
     
@@ -28,7 +24,7 @@ export default function Login() {
                 localStorage.setItem('token', res.data.token);
                 localStorage.setItem('name', res.data.name);
                 console.log('here')
-                func();
+                navigate('/home');
             }
         } catch (error) {
             // Handle error appropriately

@@ -4,10 +4,9 @@ const cors = require('cors')
 const Sib = require("sib-api-v3-sdk");
 const User = require('./models/signup.js')
 const Contact = require('./models/Contact.js')
+const Compose = require('./models/compose.js')
 const UserVerification = require('./models/UserVerification.js')
-const Expense = require('./models/expense.js')
 const bodyParser = require("body-parser");
-const expense_route = require('./routes/expense.js')
 const password_route = require('./routes/forget.js')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
@@ -16,7 +15,6 @@ const connectDB = require('./db.js')
 app.use(express.json())
 app.use(cors())
 app.use(bodyParser.json());
-app.use('/expense', expense_route)
 app.use('/password', password_route)
 require('dotenv').config()
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -27,7 +25,6 @@ const authentication = async (req, res, next) => {
 	try {
 
 		const token = req.header("Authorization");
-		// console.log(token);
 		const { userId } = jwt.verify(token, "secretKey");
 		// console.log(userId);
 		let currUser = await User.findById(userId);
@@ -38,7 +35,7 @@ const authentication = async (req, res, next) => {
 		return res.status(401).json({ success: false, message: error });
 	}
 };
-function generateAccessToken(id, premium) {
+function generateAccessToken(id) {
 	let x = jwt.sign({ userId: id }, "secretKey");
 	return x;
 }
@@ -145,7 +142,30 @@ app.post('/otpverification',authentication, async (req, res, next) => {
 		res.status(500).json({ message: error, success: false });
 	}
 })
-
+app.post('/compose',authentication,async(req,res)=>{
+    try{
+		 let obj={
+			mail:req.body.mail,
+			sub:req.body.sub,
+			message:req.body.message,
+			userId:req.user._id
+		 }
+		 await Compose.create(obj);
+		 res.status(200).json({message: "Email sent", success: true });
+	}catch(error){
+        console.log(`${error} in compose`);
+		res.status(500).json({ message: error, success: false });
+	}
+})
+app.get('/sent',authentication,async(req,res)=>{
+	try{
+     let result=await Compose.find({userId:req.user._id})
+	 res.status(200).json({result:result});
+	}catch(error){
+		console.log(error)
+		res.status(500).json({ message: error, success: false });
+	}
+})
 const apprun = () => {
 	connectDB()
 	app.listen(PORT);

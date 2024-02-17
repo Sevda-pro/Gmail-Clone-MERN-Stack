@@ -10,11 +10,7 @@ const Signup = new mongoose.Schema({
 	},
 	password: {
 		type: String,
-	},
-	total_expense: {
-		type: Number,  
-    default: 0,  
-	},
+	}
 });
 
 module.exports = mongoose.model("Signup", Signup);

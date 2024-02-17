@@ -2,11 +2,13 @@
 .sidebar {
     position: fixed;
     top: 0;
-    right: -300px; 
-    width: 300px;
+    right: -400px; 
+    width: 350px;
     height: 100%;
     margin-top:5%;
     background-color: #556840;
+    background-image: url(./sidebarimg3.jpg);
+    background-size: cover;
     transition: right 1s ease; 
   }
   
@@ -18,16 +20,39 @@
     margin-top:5%;
 }
 .verifymailbtn{
-    position: relative;
-    top: 8%;
+    position: sticky;
+    top: 22%;
 }
 .verifymailbtn + span{
     color: black;
-    position: relative;
-    top: 8%;
-    left: 10%;
+    position: sticky;
+    top: 22%;
+    left:15%;
 }
 #spannameid{
+    position: sticky;
+    color:rgb(2, 3, 3)
+}
+.contactsidebar{
+    position: sticky;
+    top: 27.5%;
+    right: 48%;
+}
+.contactsidebar + span{
+    color: black;
+    position: sticky;
+    top: 27.5%;
+    right: 15.5%;
+    
+}
+.logoutsidebar{
+    position: sticky;
+    top: 34%;
+    right: 71%;
+}
+.logoutsidebar + span{
+    color: black;
     position: absolute;
-    top: 5%;
+    top: 23.5%;
+    left: 13%;
 }
