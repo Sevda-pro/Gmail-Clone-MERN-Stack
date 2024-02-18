@@ -177,8 +177,8 @@ app.get('/received',authentication,async(req,res)=>{
 })
 app.put('/received/:id/read', authentication, async (req, res) => {
     try {
-        const emailId = req.params.id;
-        const email = await Compose.findById(emailId);
+        const Id = req.params.id;
+        const email = await Compose.findById(Id);
         email.isRead = true;
         await email.save();
 

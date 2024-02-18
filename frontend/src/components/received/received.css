@@ -1,29 +1,47 @@
 .receivedclass {
-    position: fixed;
-    bottom: -800px; 
-    width: 60%;
-    height: 90%;
-    left: 20%;
-    background-color: #7b8175;
-    transition: bottom 1s ease; 
-  }
-  
-  .receivedclass.openreceived {
-      bottom: 20px;
-      background-image: url(./received.jpg);
-      background-size: cover;
+  position: fixed;
+  bottom: -800px; 
+  width: 60%;
+  height: 90%;
+  left: 20%;
+  background-color: #7b8175;
+  transition: bottom 1s ease; 
 }
-.datalistt
-{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
+
+.receivedclass.openreceived {
+  bottom: 20px;
+  background-image: url(./received.jpg);
+  background-size: cover;
 }
+
+.datalistt {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  overflow-y: auto; /* Add scroll for overflow */
+  height: 80%; /* Adjust height as needed */
+  padding: 20px; /* Add some padding */
+}
+
 .receivedItem {
   border: 2px solid rgb(76, 115, 67);
   width: 60%;
   background-color: rgb(199, 191, 36);
   list-style: none;
+  cursor: pointer; /* Indicate it's clickable */
+  padding: 10px; /* Add padding for content */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
 }
+
+.receivedItem.read {
+  background-color: #c8c8a9; /* Lighter background for read messages */
+  color: #535353; /* Optional: Change text color for read messages */
+}
+
+.receivedItem.unread {
+  font-weight: bold; /* Bold text for unread messages */
+  background-color: #e3e3a2; /* A different background for better distinction */
+}
+

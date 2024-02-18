@@ -41,7 +41,7 @@ const Received = ({ isOpen, onClose }) => {
     return (
         <div className={`receivedclass ${isOpen ? 'openreceived' : ''}`}>
             <RxCross2 size={20} onClick={onClose} style={{ cursor: 'pointer', color: 'black', position: 'absolute', right: '0', top: '0' }} />
-            <MdOutlineMarkUnreadChatAlt size={30} style={{ color: 'black', position: 'absolute', left: '0', top: '0' }} />{datalength}
+            <MdOutlineMarkUnreadChatAlt size={30} style={{ color: 'black', position: 'absolute', left: '0', top: '0' }} />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{datalength}</span>
             <div className='listtclass'>
                 <ul className="datalistt">
                     {data.map((val) => (
