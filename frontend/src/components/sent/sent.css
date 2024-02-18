@@ -5,7 +5,7 @@
     height: 90%;
     top: 50px; 
     background-color: #9dc07b;
-    transition: left 1s ease; 
+    transition: left 1.5s ease; 
 }
 
 .sentclass.opensent {
@@ -17,7 +17,7 @@
 .Item {
     border: 2px solid rgb(76, 115, 67);
     width: 60%;
-    background-color: rgb(194, 170, 139);
+    background-color: rgb(210, 84, 70);
     list-style: none;
   
   

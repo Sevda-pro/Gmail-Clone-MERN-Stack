@@ -9,5 +9,21 @@
   }
   
   .receivedclass.openreceived {
-      bottom: 20px
+      bottom: 20px;
+      background-image: url(./received.jpg);
+      background-size: cover;
+}
+.datalistt
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.receivedItem {
+  border: 2px solid rgb(76, 115, 67);
+  width: 60%;
+  background-color: rgb(199, 191, 36);
+  list-style: none;
 }

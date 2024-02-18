@@ -148,7 +148,7 @@ app.post('/compose',authentication,async(req,res)=>{
 			mail:req.body.mail,
 			sub:req.body.sub,
 			message:req.body.message,
-			userId:req.user._id
+			from:req.user.email
 		 }
 		 await Compose.create(obj);
 		 res.status(200).json({message: "Email sent", success: true });
@@ -159,7 +159,16 @@ app.post('/compose',authentication,async(req,res)=>{
 })
 app.get('/sent',authentication,async(req,res)=>{
 	try{
-     let result=await Compose.find({userId:req.user._id})
+     let result=await Compose.find({from:req.user.email})
+	 res.status(200).json({result:result});
+	}catch(error){
+		console.log(error)
+		res.status(500).json({ message: error, success: false });
+	}
+})
+app.get('/received',authentication,async(req,res)=>{
+	try{
+     let result=await Compose.find({mail:req.user.email})
 	 res.status(200).json({result:result});
 	}catch(error){
 		console.log(error)

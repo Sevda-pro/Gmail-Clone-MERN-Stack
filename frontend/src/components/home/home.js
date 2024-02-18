@@ -18,8 +18,8 @@ import Sidebar from '../Sidebar/sidebar';
 import Compose from '../compose/compose';
 import Sent from '../sent/sent';
 import Received from '../received/received';
-const token = localStorage.getItem("token");
 const Home = () => {
+const token = localStorage.getItem("token");
     const navigate = useNavigate();
     const [isSidebarOpen, setSidebarOpen] = useState(false);
     const [isComposeOpen, setComposeOpen] = useState(false);

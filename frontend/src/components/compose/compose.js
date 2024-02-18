@@ -4,8 +4,8 @@ import { RxCross2 } from "react-icons/rx";
 import { BrowserRouter as Router, Route, Routes, NavLink, useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import Alert from 'react-bootstrap/Alert';
-const token = localStorage.getItem("token");
 const Compose = ({ isOpen, onClose }) => {
+    const token = localStorage.getItem("token");
     const [mail, setMail] = React.useState('');
     const [sub, setSub] = React.useState('');
     const [message, setMessage] = React.useState('');
