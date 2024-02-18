@@ -14,9 +14,9 @@ const Compose = new mongoose.Schema({
     from:{
         type: String,
     },
-	isRead: { // Add this field to your schema
+	isRead: { 
         type: Boolean,
-        default: false, // Default value for new emails should be 'false'
+        default: false, 
     }
 });
 

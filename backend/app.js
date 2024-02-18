@@ -175,6 +175,20 @@ app.get('/received',authentication,async(req,res)=>{
 		res.status(500).json({ message: error, success: false });
 	}
 })
+app.put('/received/:id/read', authentication, async (req, res) => {
+    try {
+        const emailId = req.params.id;
+        const email = await Compose.findById(emailId);
+        email.isRead = true;
+        await email.save();
+
+        res.status(200).json({ message: 'Email marked as read', success: true });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: error.message, success: false });
+    }
+});
+
 const apprun = () => {
 	connectDB()
 	app.listen(PORT);
