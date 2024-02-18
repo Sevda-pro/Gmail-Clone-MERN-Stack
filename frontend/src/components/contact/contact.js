@@ -31,9 +31,6 @@ const ContactUs = () => {
         <div className='cbody'>
             <div className='backNavLink'>
                 <NavLink to='/home' className='back' >Home</NavLink>
-                <NavLink to='/about' className='back' >About</NavLink>
-                <NavLink to='/login' className='back'>Logout</NavLink>
-
             </div>
             <form className="contactform">
                 <label className='labelclass' htmlFor="name">Name</label>

@@ -7,7 +7,6 @@ import Mailoverlay from '../mailoverlay/mailoverlay';
 import axios from 'axios'
 import { FcBusinessContact } from "react-icons/fc";
 import { IoLogOutOutline } from "react-icons/io5";
-
 const Sidebar = ({ isOpen, onClose }) => {
     const navigate = useNavigate();
     const [token,setToken] = React.useState(localStorage.getItem("token"));
@@ -26,6 +25,9 @@ const Sidebar = ({ isOpen, onClose }) => {
     }
     const mailclick = async () => {
         setMailoverlay(true)
+    }
+    const contactclick = () => {
+        navigate('/contact');
     }
     const checkemail = async () => {
         let res = await axios.get(`${process.env.REACT_APP_API_KEY}/check`, { headers: { Authorization: token } })
@@ -46,7 +48,7 @@ const Sidebar = ({ isOpen, onClose }) => {
                 <CgMail size={30} style={{ color: 'black' }} />
             </NavLink>
             <span>{mail == true ? 'verified user' : 'Please verify your email id'}</span>
-            <NavLink className='contactsidebar' onClick={mailclick}>
+            <NavLink className='contactsidebar' to='/contact'>
                 <FcBusinessContact size={30} style={{ color: 'black' }} />
             </NavLink>
             <span>ContactUs</span>
